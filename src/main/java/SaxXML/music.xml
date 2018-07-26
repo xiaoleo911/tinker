@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<musics>	
+	<music category="摇滚">
+	 <name>江南style</name>
+	 <author>PSY</author>
+	 <county>韩国</county>
+	 <date>20121205</date>
+	</music>
+	
+	<music category="摇滚">
+	 <name>航母style</name>
+	 <author>网民</author>
+	 <county>中国</county>
+	 <date>20121205</date>
+	</music>
+</musics>
