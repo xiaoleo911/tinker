@@ -1,9 +1,6 @@
-package LinkedList;
+package linkedlist;
 
-import java.util.Calendar;
 import java.util.Random;
-
-import javax.xml.bind.ValidationEvent;
 
 public class MyLinkedList {
 	Node head = null;

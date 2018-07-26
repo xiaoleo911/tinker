@@ -1,4 +1,4 @@
-package Queue;
+package queue;
 
 public class Node<E> {
 	Node<E> next = null;
