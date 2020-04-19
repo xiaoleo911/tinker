@@ -1,3 +1,5 @@
-### Custom Settings
+.idea
 out
+/target/
+.gitignore
 /.idea
