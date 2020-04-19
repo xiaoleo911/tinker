@@ -17,7 +17,7 @@ public class User {
     public static enum SingletonEnum {
         INSTANCE;
 
-        private SingletonEnum() {
+        SingletonEnum() {
             this.user = new User();
         }
 
@@ -33,6 +33,5 @@ public class User {
         System.out.println(User.getInstance());
         System.out.println(User.getInstance() == User.getInstance());
     }
-
 
 }
