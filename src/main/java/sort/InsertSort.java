@@ -1,19 +1,13 @@
 package sort;
 
+import java.util.Arrays;
+
 /**
  * 直接插入排序
  * author: fupeng
  * time: 2020-04-19 11:38
  */
 public class InsertSort {
-
-    public static void main(String[] args) {
-        int[] a = {2, 6, 8, 7, 9, 1, 5, 4, 3};
-        insertSort(a);
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
-        }
-    }
 
     public static void insertSort(int[] data) {
         int temp;
@@ -29,6 +23,7 @@ public class InsertSort {
             }
             data[j + 1] = temp;//找到这个位置，插入数据
         }
+        System.out.println(Arrays.toString(data));
     }
 
 }
