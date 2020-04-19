@@ -1,5 +1,7 @@
 package sort;
 
+import java.util.Arrays;
+
 /**
  * 快速排序
  * author: fupeng
@@ -7,8 +9,9 @@ package sort;
  */
 public class QuickSort {
 
-    public static void quickSort(int[] a) {
-        sort(a, 0, a.length - 1);
+    public static void quickSort(int[] array) {
+        sort(array, 0, array.length - 1);
+        System.out.println(Arrays.toString(array));
     }
 
     private static void sort(int[] a, int low, int high) {
