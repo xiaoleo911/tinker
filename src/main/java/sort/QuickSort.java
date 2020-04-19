@@ -1,9 +1,13 @@
 package sort;
 
+/**
+ * 快速排序
+ * author: fupeng
+ * time: 2018-07-26 11:38
+ */
 public class QuickSort {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int[] a = { 2, 6, 8, 7, 9, 1, 5, 4, 3 };
 		quickSort(a);
 		for (int i = 0; i < a.length; i++) {

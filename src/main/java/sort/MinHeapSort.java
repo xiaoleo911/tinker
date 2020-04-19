@@ -1,6 +1,21 @@
 package sort;
 
+/**
+ * 堆排序
+ * author: fupeng
+ * time: 2018-07-26 11:38
+ */
 public class MinHeapSort {
+
+	public static void main(String[] args) {
+		int i;
+		int a[] = {2,1,3,4,5};
+		int len = a.length;
+		myMinHeapSort(a);
+		for(i = 0;i<len;i++){
+			System.out.println(a[i] + " ");
+		}
+	}
 
 	public static void adjustMinHeap(int[] a,int pos,int len){
 		int temp;
@@ -19,7 +34,7 @@ public class MinHeapSort {
 		}
 		a[pos] = temp;
 	}
-	
+
 	public static void myMinHeapSort(int[] array){
 		int i;
 		int len = array.length;
@@ -33,17 +48,6 @@ public class MinHeapSort {
 			array[0] = array[i];
 			array[i] = temp;
 			adjustMinHeap(array, 0, i - 1);
-		}
-	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int i = 0;
-		int a[] = {2,1,3,4,5};
-		int len = a.length;
-		myMinHeapSort(a);
-		for(i = 0;i<len;i++){
-			System.out.println(a[i] + " ");
 		}
 	}
 
