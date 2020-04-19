@@ -34,8 +34,6 @@ public class MinHeapSort {
 			array[i] = temp;
 			adjustMinHeap(array, 0, i - 1);
 		}
-	
-		
 	}
 	
 	public static void main(String[] args) {
