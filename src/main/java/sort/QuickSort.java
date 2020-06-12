@@ -25,14 +25,18 @@ public class QuickSort {
             return;
         }
         while (i < j) {
-            while (i < j && a[j] >= index)
+            while (i < j && a[j] >= index) {
                 j--;
-            if (a[j] < index)
+            }
+            if (a[j] < index) {
                 a[i++] = a[j];
-            while (i < j && a[i] <= index)
+            }
+            while (i < j && a[i] <= index) {
                 i++;
-            if (a[i] > index)
+            }
+            if (a[i] > index) {
                 a[j--] = a[i];
+            }
         }
         a[i] = index;
         sort(a, low, i - 1);
