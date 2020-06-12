@@ -17,13 +17,13 @@ public class QuickSort {
     private static void sort(int[] a, int low, int high) {
         int i = low;
         int j = high;
-        int index = a[i];
         if (a.length <= 1) {
             return;
         }
         if (i >= j) {
             return;
         }
+        int index = a[i];
         while (i < j) {
             while (i < j && a[j] >= index) {
                 j--;
