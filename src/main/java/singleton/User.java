@@ -14,7 +14,8 @@ public class User {
         return SingletonEnum.INSTANCE.getInstance();
     }
 
-    public static enum SingletonEnum {
+    public enum SingletonEnum {
+
         INSTANCE;
 
         SingletonEnum() {
