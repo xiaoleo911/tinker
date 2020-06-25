@@ -19,7 +19,7 @@ class MyThread extends Thread {
 
 
     /**
-     * lockInterruptibly 相应中断
+     * lockInterruptibly 响应中断
      * @throws Exception
      */
     public static void test1() throws Exception {
