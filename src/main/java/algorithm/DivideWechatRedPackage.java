@@ -33,17 +33,25 @@ public class DivideWechatRedPackage {
      * @return
      */
     private List<BigDecimal> divideRedPackage(BigDecimal total, int count) {
-        BigDecimal fen = total.multiply(BigDecimal.valueOf(100));
+        int fen = total.multiply(BigDecimal.valueOf(100)).intValue();
+        if (fen < count) {
+            System.out.println("红包金额太小，不够分配");
+            return new ArrayList();
+        }
+        if (count < 1) {
+            System.out.println("红包个数最少为1");
+            return new ArrayList();
+        }
 
         // 确定 N-1 个分割点
         List<Integer> boards = new ArrayList<>();
         boards.add(0);
-        boards.add(fen.intValue());
+        boards.add(fen);
         Random random = new Random();
         while (boards.size() <= count) {
-            int index = random.nextInt(fen.intValue());
+            int index = random.nextInt(fen);
             if (!boards.contains(index)) {
-                boards.add(random.nextInt(fen.intValue()));
+                boards.add(random.nextInt(fen));
             }
         }
 
