@@ -16,22 +16,22 @@ public class FindMaxDistance {
     int maxLength = 0;
 
     public static void main(String[] args) {
-        FindMaxDistance learnTree = new FindMaxDistance();
-        learnTree.calMaxLen();
-        System.out.println("二叉树最大距离：" + learnTree.maxLength);
+        FindMaxDistance findMaxDistance = new FindMaxDistance();
+        findMaxDistance.findMaxDistance();
+        System.out.println("二叉树最大距离：" + findMaxDistance.maxLength);
     }
 
-    public void calMaxLen() {
+    public void findMaxDistance() {
         Node head = new Node();
         head.data = 1;        // 根节点赋初值
         makeTree(head);     // 构造一棵二叉树
-        calMaxLen(head);       // 中序遍历 + 递归计算
+        findMaxDistance(head);       // 中序遍历 + 递归计算
     }
 
-    public int calMaxLen(Node head) {
+    public int findMaxDistance(Node head) {
         if (head == null) return 0;
-        head.leftLen = head.left != null ? calMaxLen(head.left) + 1 : 0;
-        head.rightLen = head.right != null ? calMaxLen(head.right) + 1 : 0;
+        head.leftLen = head.left != null ? findMaxDistance(head.left) + 1 : 0;
+        head.rightLen = head.right != null ? findMaxDistance(head.right) + 1 : 0;
         if (head.rightLen + head.leftLen > maxLength) maxLength = head.rightLen + head.leftLen;
         return head.rightLen > head.leftLen ? head.rightLen : head.leftLen;
     }
