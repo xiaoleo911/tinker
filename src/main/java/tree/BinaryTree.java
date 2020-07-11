@@ -7,22 +7,25 @@ import java.util.Queue;
 /**
  * 中序、先序、后续、层序遍历二叉树
  *
- * 二叉树结构
- *          2
- *         / \
- *       1    8
- *          7   9
- *         / \
- *        4   7
- *       / \
- *      3  6
- *        /
- *       5
  * author: fupeng
  * time: 2020-07-11 15:02
  */
 public class BinaryTree {
 
+    /*
+   二叉树结构
+            2
+           / \
+         1     8
+              / \
+             7   9
+            / \
+           4   7
+          / \
+         3   6
+            /
+           5
+     */
     public static void main(String[] args) {
         BinaryTree biTree = new BinaryTree();
         int[] data = {2, 8, 7, 4, 9, 3, 1, 6, 7, 5};

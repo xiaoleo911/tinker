@@ -6,7 +6,7 @@ package tree;
  * author: fupeng
  * time: 2020-06-14 10:45
  */
-public class CalTreeMaxLen {
+public class FindMaxDistance {
 
     //树的结构如下：
     /*    1
@@ -16,7 +16,7 @@ public class CalTreeMaxLen {
     int maxLength = 0;
 
     public static void main(String[] args) {
-        CalTreeMaxLen learnTree = new CalTreeMaxLen();
+        FindMaxDistance learnTree = new FindMaxDistance();
         learnTree.calMaxLen();
         System.out.println("二叉树最大距离：" + learnTree.maxLength);
     }
