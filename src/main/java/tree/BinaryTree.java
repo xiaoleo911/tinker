@@ -1,8 +1,9 @@
 package tree;
 
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+
+import static java.lang.System.*;
 
 /**
  * 中序、先序、后续、层序遍历二叉树
@@ -45,7 +46,53 @@ public class BinaryTree {
         System.out.println("层序遍历二叉树：");
         biTree.layerTranverse();
 
+
+        System.out.println("工字遍历二叉树：");
+        ArrayList<ArrayList<Integer>> list = biTree.zLevelOrder(biTree.root);
+        list.forEach(list1 -> System.out.println(list1));
+
     }
+
+    private ArrayList<ArrayList<Integer>> zLevelOrder(Node root) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        LinkedList<Node> queue = new LinkedList<>();
+        int depth = 0;
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            ArrayList<Integer> tmp = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                Node node = null;
+                if (depth %2 == 0) {
+                    node = queue.pollLast();
+                    if (node.left != null){
+                        queue.offerFirst(node.left);
+                    }
+                    if (node.right != null) {
+                        queue.offerFirst(node.right);
+                    }
+                } else {
+                    node = queue.poll();
+                    if(node.right != null) {
+                        queue.offer(node.right);
+                    }
+                    if (node.left != null) {
+                        queue.offer(node.left);
+                    }
+                }
+                tmp.add(node.data);
+            }
+            depth++;
+            result.add(tmp);
+        }
+        return result;
+    }
+
+
+
 
     /**
      * 二叉树
@@ -107,7 +154,7 @@ public class BinaryTree {
     private void inOrder(Node localRoot) {
         if (localRoot != null) {
             inOrder(localRoot.left);
-            System.out.print(localRoot.data + "");
+            out.print(localRoot.data + "");
             inOrder(localRoot.right);
         }
     }
@@ -123,7 +170,7 @@ public class BinaryTree {
      */
     private void preOrder(Node localRoot) {
         if (localRoot != null) {
-            System.out.print(localRoot.data + "");
+            out.print(localRoot.data + "");
             preOrder(localRoot.left);
             preOrder(localRoot.right);
         }
@@ -142,7 +189,7 @@ public class BinaryTree {
         if (localRoot != null) {
             postOrder(localRoot.left);
             postOrder(localRoot.right);
-            System.out.print(localRoot.data + "");
+            out.print(localRoot.data + "");
         }
     }
 
@@ -161,7 +208,7 @@ public class BinaryTree {
         q.add(this.root);
         while (!q.isEmpty()) {
             Node n = q.poll();
-            System.out.print(n.data);
+            out.print(n.data);
             if (n.left != null) {
                 q.add(n.left);
             }
