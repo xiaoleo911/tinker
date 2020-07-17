@@ -9,7 +9,8 @@ package singleton;
  * @date: 2018/7/26 21:45
  */
 public class SingletonDemo3 {
-    private static SingletonDemo3 instance;
+
+    private static volatile SingletonDemo3 instance;
 
     private SingletonDemo3() {
     }
