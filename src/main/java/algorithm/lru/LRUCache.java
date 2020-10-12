@@ -52,6 +52,7 @@ public class LRUCache<K, V> {
 
     /**
      * 刷新被访问Node的位置
+     *
      * @param node
      */
     private synchronized void refreshNode(Node node) {
@@ -72,7 +73,7 @@ public class LRUCache<K, V> {
         if (node == tail && hashMap.size() == 1) {
             head = null;
             tail = null;
-        } else if(node == tail) {
+        } else if (node == tail) {
             tail = tail.pre;
         } else if (node == head) {
             // 移除头节点
@@ -140,7 +141,7 @@ public class LRUCache<K, V> {
     public void printLRU() {
         if (head != null) {
             Node node = head;
-            while(node != null) {
+            while (node != null) {
                 System.out.println("key = " + node.key + ", value = " + node.value);
                 node = node.next;
             }
