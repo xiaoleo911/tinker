@@ -1,29 +1,31 @@
-package algorithm;
+package algorithm.lru;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * 使用LinkedHashMap 实现的LRU
+ * <p>
  * author: fupeng
  * time: 2020-07-17 6:41
  */
-public class LRU<K, V> extends LinkedHashMap<K, V>{
+public class LRUCacheSimple<K, V> extends LinkedHashMap<K, V> {
 
     private int cacheSize;
 
-    public LRU(int cacheSize) {
+    public LRUCacheSimple(int cacheSize) {
         super(cacheSize, 0.75f, true);
         this.cacheSize = cacheSize;
     }
 
     @Override
-    public boolean removeEldestEntry(Map.Entry<K,V> eldest) {
+    public boolean removeEldestEntry(Map.Entry<K, V> eldest) {
         return size() > cacheSize;
     }
 
     public static void main(String[] args) {
-        LRU lru = new LRU(3);
+        LRUCacheSimple lru = new LRUCacheSimple(3);
         lru.put("1", 1);
         lru.put("2", 2);
         lru.put("3", 3);
@@ -38,7 +40,7 @@ public class LRU<K, V> extends LinkedHashMap<K, V>{
 
     }
 
-    public void printLRU(LRU lru) {
+    public void printLRU(LRUCacheSimple lru) {
         Iterator<Map.Entry<String, Integer>> iterator = lru.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, Integer> entry = iterator.next();
