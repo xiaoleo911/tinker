@@ -126,16 +126,30 @@ public class LRUCache<K, V> {
         System.out.println();
         System.out.println("head should be 3");
 
+        System.out.println("==========================================");
+        lru = new LRUCache(3);
+        lru.put("1", "1");
+        lru.put("1", "2");
+        lru.put("3", "3");
+
+        lru.printLRU();
+        System.out.println();
+        lru.get("3");
+        lru.printLRU();
+        System.out.println();
+        System.out.println("head should be 3");
+
+
+        System.out.println("==========================================");
         lru = new LRUCache(1);
         lru.put("1", "1");
 
-        System.out.println("==========================================");
         lru.printLRU();
         System.out.println();
         lru.put("4", "4");
         lru.printLRU();
         System.out.println();
-        System.out.println("head should be 2");
+        System.out.println("head should be 4");
     }
 
     public void printLRU() {
