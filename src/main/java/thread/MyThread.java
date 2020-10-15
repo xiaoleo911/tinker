@@ -20,6 +20,7 @@ class MyThread extends Thread {
 
     /**
      * lockInterruptibly 响应中断
+     *
      * @throws Exception
      */
     public static void test1() throws Exception {
@@ -30,12 +31,12 @@ class MyThread extends Thread {
             @Override
             public void run() {
 //                lock.lock();
-	        	try {
-					lock.lockInterruptibly();
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                try {
+                    lock.lockInterruptibly();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 System.out.println(Thread.currentThread().getName() + " interrupted.");
             }
         });
