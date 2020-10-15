@@ -1,13 +1,15 @@
 package tree;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 /**
  * 中序、先序、后续、层序遍历二叉树
- *
+ * <p>
  * author: fupeng
  * time: 2020-07-11 15:02
  */
@@ -61,14 +63,14 @@ public class BinaryTree {
         LinkedList<Node> queue = new LinkedList<>();
         int depth = 0;
         queue.offer(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int size = queue.size();
             ArrayList<Integer> tmp = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 Node node = null;
-                if (depth %2 == 0) {
+                if (depth % 2 == 0) {
                     node = queue.pollLast();
-                    if (node.left != null){
+                    if (node.left != null) {
                         queue.offerFirst(node.left);
                     }
                     if (node.right != null) {
@@ -76,7 +78,7 @@ public class BinaryTree {
                     }
                 } else {
                     node = queue.poll();
-                    if(node.right != null) {
+                    if (node.right != null) {
                         queue.offer(node.right);
                     }
                     if (node.left != null) {
@@ -90,8 +92,6 @@ public class BinaryTree {
         }
         return result;
     }
-
-
 
 
     /**

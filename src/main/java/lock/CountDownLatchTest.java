@@ -18,9 +18,9 @@ public class CountDownLatchTest {
 
         CountDownLatch latch = new CountDownLatch(3);
 
-        Work w1 = new Work(latch,"张三");
-        Work w2 = new Work(latch,"李四");
-        Work w3 = new Work(latch,"王二");
+        Work w1 = new Work(latch, "张三");
+        Work w2 = new Work(latch, "李四");
+        Work w3 = new Work(latch, "王二");
 
         Boss boss = new Boss(latch);
 

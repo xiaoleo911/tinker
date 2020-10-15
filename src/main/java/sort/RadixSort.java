@@ -11,7 +11,7 @@ public class RadixSort {
 
     public static void radixSort(int[] array) {
         ArrayList<ArrayList<Integer>> queue = new ArrayList<>();
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 0; i < 10; i++) {
             queue.add(new ArrayList<>());// 创建一个基数从0---9 每个数字上都是一个list
         }
         // 找到最大值，并判断最大值是几位数

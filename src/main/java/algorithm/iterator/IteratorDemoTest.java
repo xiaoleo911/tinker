@@ -30,7 +30,7 @@ public class IteratorDemoTest {
 
     private static void printIterator(ICourseAggregate aggregate) {
         Iterator<Course> iterator = aggregate.iterator();
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Course course = iterator.next();
             System.out.println("《" + course.getName() + "》");
         }

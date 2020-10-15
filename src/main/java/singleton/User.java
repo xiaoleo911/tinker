@@ -2,13 +2,14 @@ package singleton;
 
 /**
  * 枚举的方式
- *
+ * <p>
  * author: fupeng
  * time: 2020-03-30 21:59
  */
 public class User {
 
-    private User() {}
+    private User() {
+    }
 
     public static User getInstance() {
         return SingletonEnum.INSTANCE.getInstance();

@@ -1,11 +1,14 @@
 package algorithm;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 /**
  * 微信群抢红包
- *
+ * <p>
  * 线段切割法
  * 原理：
  * 把红包总金额想象成一条很长的线段，而每个人抢到的金额，则是这条主线段所拆分出的若干子线段。
@@ -28,6 +31,7 @@ public class DivideWechatRedPackage {
 
     /**
      * 分割红包
+     *
      * @param total 红包总金额
      * @param count 红包个数
      * @return

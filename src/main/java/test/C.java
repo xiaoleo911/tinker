@@ -1,7 +1,7 @@
 package test;
 
 public class C {
-	
-	int a = 7;
-	
+
+    int a = 7;
+
 }

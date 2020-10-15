@@ -12,12 +12,11 @@ public class ListDir {
     }
 
     private static void _walkDirectory(File f) {
-        if(f.isDirectory()) {
-            for(File temp : f.listFiles()) {
+        if (f.isDirectory()) {
+            for (File temp : f.listFiles()) {
                 _walkDirectory(temp);
             }
-        }
-        else {
+        } else {
             System.out.println(f.getName());
         }
     }
