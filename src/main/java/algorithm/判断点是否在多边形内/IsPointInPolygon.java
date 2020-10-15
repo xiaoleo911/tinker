@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.判断点是否在多边形内;
 
 import java.awt.geom.Point2D;
 import java.util.Arrays;
@@ -58,6 +58,12 @@ public class IsPointInPolygon {
 
     }
 
+    /**
+     * 判断点是否在多边形内
+     * @param point     假设point点为人的坐标 A 点
+     * @param polygon
+     * @return
+     */
     public static boolean isPointInPolygon(Point2D.Double point, List<Point2D.Double> polygon) {
         assertParams(point, polygon);
         int count = 0;
@@ -78,7 +84,7 @@ public class IsPointInPolygon {
                 y2 = polygon.get(index + 1).getY();
             }
             /**
-             * 以下语句判断A点是否在边的两端点的水平平行线之间，在则可能有交点
+             * 以下语句判断人的坐标 A 点 是否在边的两端点的水平平行线之间，在则可能有交点
              * 注意: 如果与直线的顶点相交，则与纵坐标y值大的那个顶点相交，才认为是点与直线相交
              */
             if (((point.y > y1) && (point.y <= y2)) || ((point.y > y2) && (point.y <= y1))) {
@@ -92,7 +98,7 @@ public class IsPointInPolygon {
                      * dLon - x1          x2 - x1                              y2 - y1
                      */
                     dLon = x1 + ((point.y - y1) * (x2 - x1)) / (y2 - y1);
-                    // 如果交点在A点右侧（说明是做射线与 边的交点），则射线与边的全部交点数加一：
+                    // 如果交点在人的坐标 A 点 右侧（说明是做射线与 边的交点），则射线与边的全部交点数加一：
                     if (dLon > point.x) {
                         count++;
                     }
