@@ -8,15 +8,14 @@ import java.util.HashMap;
  * @author: fupeng
  * @date: 2020/10/14 10：00
  */
-public class LruByMyself {
+public class LruByMyselfNew {
 
     private Node head;
     private Node tail;
-    // 缓存的容量
     private int cacheSize;
     private HashMap<String, Node> hashMap;
 
-    public LruByMyself(int cacheSize) {
+    public LruByMyselfNew(int cacheSize) {
         this.cacheSize = cacheSize;
         hashMap = new HashMap<>();
     }
@@ -24,7 +23,6 @@ public class LruByMyself {
     public synchronized void put(String key, String value) {
         Node node = hashMap.get(key);
         if (node == null) {
-            // map中没有需要新增，首先判断map大小是否已经超过 cacheSize
             if (hashMap.size() >= cacheSize) {
                 hashMap.remove(head.key);
                 if (hashMap.size() == 0) {
@@ -38,7 +36,6 @@ public class LruByMyself {
             addNode(newNode);
         } else {
             node.value = value;
-            // 刷新node 链表
             refreshNode(node);
         }
     }
@@ -85,7 +82,6 @@ public class LruByMyself {
         private Node next;
         private String key;
         private String value;
-
         public Node(String key, String value) {
             this.key = key;
             this.value = value;
@@ -93,8 +89,9 @@ public class LruByMyself {
     }
 
 
+
     public static void main(String[] args) {
-        LruByMyself lru = new LruByMyself(3);
+        LruByMyselfNew lru = new LruByMyselfNew(3);
         lru.put("1", "1");
         lru.put("2", "2");
         lru.put("3", "3");
@@ -108,7 +105,7 @@ public class LruByMyself {
         System.out.println("head should be 3");
 
         System.out.println("==========================================");
-        lru = new LruByMyself(3);
+        lru = new LruByMyselfNew(3);
         lru.put("1", "1");
         lru.put("1", "2");
         lru.put("3", "3");
@@ -122,7 +119,7 @@ public class LruByMyself {
 
 
         System.out.println("==========================================");
-        lru = new LruByMyself(1);
+        lru = new LruByMyselfNew(1);
         lru.put("1", "1");
 
         lru.printLRU();
