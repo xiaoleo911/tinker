@@ -1,4 +1,4 @@
-package algorithm.找出和为指定值的所有组合;
+package algorithm.数组中任意数和为目标值;
 
 import java.io.BufferedReader;
 import java.io.File;
