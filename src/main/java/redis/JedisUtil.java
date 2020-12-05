@@ -32,6 +32,16 @@ public class JedisUtil {
         jedisPoolConfig.setMaxTotal(10000);
         jedisPoolConfig.setMaxWaitMillis(1000);
         jedisPoolConfig.setTestOnCreate(false);
+
+
+        //在获取Jedis连接时，自动检验连接是否可用
+        jedisPoolConfig.setTestOnBorrow(true);
+        //在将连接放回池中前，自动检验连接是否有效
+        jedisPoolConfig.setTestOnReturn(true);
+        //自动测试池中的空闲连接是否都是可用连接
+        jedisPoolConfig.setTestWhileIdle(true);
+
+
         jedisPool = new JedisPool(jedisPoolConfig, ip, port, timeout);
     }
 
@@ -46,7 +56,10 @@ public class JedisUtil {
      * @return
      */
     public static boolean lock(String key, String value, int timeout) {
-        return LOCK_SUCCESS.equals(jedisPool.getResource().set(key, value, new SetParams().nx().px(timeout)));
+        Jedis jedis = jedisPool.getResource();
+        boolean result = LOCK_SUCCESS.equals(jedis.set(key, value, new SetParams().nx().px(timeout)));
+        jedis.close();
+        return result;
     }
 
     public static boolean release(String key, String value) {
